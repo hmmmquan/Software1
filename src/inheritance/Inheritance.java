@@ -7,10 +7,7 @@ class Employee {
     private String lastName;
     private String SSN;
     
-    public Employee(String firstName, String lastName, String SSN) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.SSN = SSN;
+    public Employee() {
     }
     
     public String getFirstName() {
@@ -36,11 +33,6 @@ class Employee {
 class SalariedEmployee extends Employee {
     private double weeklySalary;
 
-    public SalariedEmployee(String firstName, String lastName, String SSN, double weeklySalary) {
-        super(firstName, lastName, SSN);
-        this.weeklySalary = weeklySalary;
-    }
-
     public double getWeeklySalary() {
         return weeklySalary;
     }
@@ -52,12 +44,6 @@ class SalariedEmployee extends Employee {
 class HourlyEmployee extends Employee {
     private double wage;
     private double hoursWorked;
-
-    public HourlyEmployee(String firstName, String lastName, String SSN, double wage, double hoursWorked) {
-        super(firstName, lastName, SSN);
-        this.wage = wage;
-        this.hoursWorked = hoursWorked;
-    }
 
     public double getWage() {
         return wage;
@@ -77,12 +63,6 @@ class CommissionEmployee extends Employee {
     private double commissionRate;
     private double grossSales;
 
-    public CommissionEmployee(String firstName, String lastName, String SSN, double commissionRate, double grossSales) {
-        super(firstName, lastName, SSN);
-        this.commissionRate = commissionRate;
-        this.grossSales = grossSales;
-    }
-
     public double getCommissionRate() {
         return commissionRate;
     }
@@ -100,11 +80,6 @@ class CommissionEmployee extends Employee {
 class BaseEmployee extends Employee {
     private double baseSalary;
 
-    public BaseEmployee(String firstName, String lastName, String SSN, double baseSalary) {
-        super(firstName, lastName, SSN);
-        this.baseSalary = baseSalary;
-    }
-
     public double getBaseSalary() {
         return baseSalary;
     }
@@ -117,13 +92,52 @@ public class Inheritance {
     
     public static void main(String[] args) {
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
-        SalariedEmployee joe = new SalariedEmployee("Joe", "Jones", "111-11-1111", 2500);
-        HourlyEmployee stephanie = new HourlyEmployee("Stephanie", "Smith", "222-22-2222", 25, 32);
-        HourlyEmployee mary = new HourlyEmployee("Mary", "Quinn", "333-33-3333", 19, 47);
-        CommissionEmployee nicole = new CommissionEmployee("Nicole", "Dior", "444-44-4444", 15, 50000);
-        SalariedEmployee renwa = new SalariedEmployee("Renwa", "Chanel", "555-55-5555", 1700);
-        BaseEmployee mike = new BaseEmployee("Mike", "Davenport ", "666-66-6666", 95000);
-        CommissionEmployee mahnaz = new CommissionEmployee("Mahnaz", "Vaziri", "777-77-7777", 22, 40000);
+        
+        SalariedEmployee joe = new SalariedEmployee();
+        joe.setFirstName("Joe");
+        joe.setLastName("Jones");
+        joe.setSSN("111-11-1111");
+        joe.setWeeklySalary(2500);
+
+        HourlyEmployee stephanie = new HourlyEmployee();
+        stephanie.setFirstName("Stephanie");
+        stephanie.setLastName("Smith");
+        stephanie.setSSN("222-22-2222");
+        stephanie.setWage(25);
+        stephanie.setHoursWorked(32);
+
+        HourlyEmployee mary = new HourlyEmployee();
+        mary.setFirstName("Mary");
+        mary.setLastName("Quinn");
+        mary.setSSN("333-33-3333");
+        mary.setWage(19);
+        mary.setHoursWorked(47);
+
+        CommissionEmployee nicole = new CommissionEmployee();
+        nicole.setFirstName("Nicole");
+        nicole.setLastName("Dior");
+        nicole.setSSN("444-44-4444");
+        nicole.setCommissionRate(15);
+        nicole.setGrossSales(50000);
+
+        SalariedEmployee renwa = new SalariedEmployee();
+        renwa.setFirstName("Renwa");
+        renwa.setLastName("Chanel");
+        renwa.setSSN("555-55-5555");
+        renwa.setWeeklySalary(1700);
+
+        BaseEmployee mike = new BaseEmployee();
+        mike.setFirstName("Mike");
+        mike.setLastName("Davenport ");
+        mike.setSSN("666-66-6666");
+        mike.setBaseSalary(95000);
+
+        CommissionEmployee mahnaz = new CommissionEmployee();
+        mahnaz.setFirstName("Mahnaz");
+        mahnaz.setLastName("Vaziri");
+        mahnaz.setSSN("777-77-7777");
+        mahnaz.setCommissionRate(22);
+        mahnaz.setGrossSales(40000);
         
         System.out.println("First name\tLast Name\tSocial Sec #\tWeekly Salary\tWage\tHours worked\tCom rate\tGross salary\tBase salary"); 
         System.out.println(joe.getFirstName() + "\t\t" + joe.getLastName() + "\t\t" + joe.getSSN() + "\t" + "$" + decimalFormat.format(joe.getWeeklySalary()));
