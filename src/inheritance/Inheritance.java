@@ -7,9 +7,6 @@ class Employee {
     private String lastName;
     private String SSN;
     
-    public Employee() {
-    }
-    
     public String getFirstName() {
         return firstName;
     }
