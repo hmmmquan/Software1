@@ -4,11 +4,6 @@ class Ship {
     private String name;
     private String year;
 
-    public Ship(String name, String year) {
-        this.name = name;
-        this.year = year;
-    }
-
     public String getName() {
         return name;
     }
@@ -29,12 +24,7 @@ class Ship {
 
 class CruiseShip extends Ship {
     private int maxPassengers;
-    
-    public CruiseShip(String name, String yearBuilt, int maxPassengers) {
-        super(name, yearBuilt);
-        this.maxPassengers = maxPassengers;
-    }
-    
+   
     public int getMaxPassengers() {
         return maxPassengers;
     }
@@ -51,12 +41,7 @@ class CruiseShip extends Ship {
 
 class CargoShip extends Ship {
     private int cargoCapacity;
-    
-    public CargoShip(String name, String yearBuilt, int cargoCapacity) {
-        super(name, yearBuilt);
-        this.cargoCapacity = cargoCapacity;
-    }
-    
+  
     public int getCargoCapacity() {
         return cargoCapacity;
     }
@@ -75,9 +60,20 @@ public class Polymorphism {
     
     public static void main(String[] args) {
         Ship[] ships = new Ship[3];
-        ships[0] = new Ship("Ship", "2020");
-        ships[1] = new CruiseShip("Cruise Ship", "2021", 100);
-        ships[2] = new CargoShip("Cargo Ship", "2022", 10000);
+        
+        ships[0] = new Ship();
+        ships[0].setName("Ship");
+        ships[0].setYear("2020");
+        
+        ships[1] = new CruiseShip();
+        ships[1].setName("Cruise Ship");
+        ships[1].setYear("2021");
+        ((CruiseShip)ships[1]).setMaxPassengers(100);
+        
+        ships[2] = new CargoShip();
+        ships[2].setName("Cargo Ship");
+        ships[2].setYear("2023");
+        ((CargoShip)ships[2]).setCargoCapacity(10000);
         
         for (Ship ship : ships) {
             ship.printShip();

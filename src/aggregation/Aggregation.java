@@ -5,12 +5,6 @@ class Instructor {
     private String lastName;
     private String officeNumber;
 
-    public Instructor(String firstName, String lastName, String officeNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.officeNumber = officeNumber;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -36,12 +30,6 @@ class Textbook {
     private String author;
     private String publisher;
 
-    public Textbook(String title, String author, String publisher) {
-        this.title = title;
-        this.author = author;
-        this.publisher = publisher;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -66,12 +54,6 @@ class Course {
     private String courseName;
     private Instructor instructor;
     private Textbook textbook;
-
-    public Course(String courseName, Instructor instructor, Textbook textbook) {
-        this.courseName = courseName;
-        this.instructor = instructor;
-        this.textbook = textbook;
-    }
 
     public String getCourseName() {
         return courseName;
@@ -104,20 +86,52 @@ class Course {
 
 public class Aggregation {
     public static void main(String[] args) {
-        Instructor instructor = new Instructor("Nima", "Davarpanah", "3-2636");
-        Textbook textbook = new Textbook("Clean Code", "Robert C. Martin Series", "Prentice Hall");
-        Course course = new Course("Software Engineering", instructor, textbook);
+        Instructor instructor = new Instructor();
+        instructor.setFirstName("Nima");
+        instructor.setLastName("Davarpanah");
+        instructor.setOfficeNumber("3-2636");
+
+        Textbook textbook = new Textbook();
+        textbook.setTitle("Clean Code");
+        textbook.setAuthor("Robert C. Martin Series");
+        textbook.setPublisher("Prentice Hall");
+
+        Course course = new Course();
+        course.setCourseName("Software Engineering");
+        course.setInstructor(instructor);
+        course.setTextbook(textbook);
+        
         Instructor[] instructors = {
-            new Instructor("Nima", "Davarpanah", "3-2636"),
-            new Instructor("Tony", "Diaz", "8-49B")
+            new Instructor(),
+            new Instructor()
         };
+        instructors[0].setFirstName("Nima");
+        instructors[0].setLastName("Davarpanah");
+        instructors[0].setOfficeNumber("3-2636");
+        instructors[1].setFirstName("Tony");
+        instructors[1].setLastName("Diaz");
+        instructors[1].setOfficeNumber("8-49B");
+        
         Textbook[] textbooks = {
-            new Textbook("Clean Code", "Robert C. Martin Series", "Prentice Hall"),
-            new Textbook("Computer Graphics with Open GL.", "Donald Hearn, Pauline Baker, Warren Carithers", "Pearson")
+            new Textbook(),
+            new Textbook()
         };
+        textbooks[0].setTitle("Clean Code");
+        textbooks[0].setAuthor("Robert C. Martin Series");
+        textbooks[0].setPublisher("Prentice Hall");
+        textbooks[1].setTitle("Computer Graphics with Open GL.");
+        textbooks[1].setAuthor("Donald Hearn, Pauline Baker, Warren Carithers");
+        textbooks[1].setPublisher("Pearson");
+        
         Course[] courses = new Course[2];
-        courses[0] = new Course("Software Engineering", instructors[0], textbooks[0]);
-        courses[1] = new Course("Computer Graphics", instructors[1], textbooks[1]);
+        courses[0] = new Course();
+        courses[0].setCourseName("Software Engineering");
+        courses[0].setInstructor(instructors[0]);
+        courses[0].setTextbook(textbooks[0]);
+        courses[1] = new Course();
+        courses[1].setCourseName("Computer Graphics");
+        courses[1].setInstructor(instructors[1]);
+        courses[1].setTextbook(textbooks[1]);
          
         System.out.println("Example 1: One course");
         System.out.println("-------------------------------");

@@ -6,10 +6,6 @@ import java.util.List;
 class File {
     private String fileName;
 
-    public File(String fileName) {
-        this.fileName = fileName;
-    }
-
     public String getFileName() {
         return fileName;
     }
@@ -26,11 +22,10 @@ class Folder {
     private Folder parentFolder;
     private List<Folder> subFolders;
     private List<File> files;
-
-    public Folder(String folderName) {
-        this.folderName = folderName;
-        subFolders = new ArrayList<>();
-        files = new ArrayList<>();
+    
+    public Folder() {
+        this.subFolders = new ArrayList<>();
+        this.files = new ArrayList<>();
     }
 
     public String getFolderName() {
@@ -81,23 +76,40 @@ class Folder {
 
 public class Composition {
     public static void main(String[] args) {
-        Folder root = new Folder("php_demo1");
-        Folder sourceFiles = new Folder("Source Files");
-        Folder phalcon = new Folder(".phalcon");
-        Folder app = new Folder("app");
-        Folder config = new Folder("config");
-        Folder controllers = new Folder("controllers");
-        Folder library = new Folder("library");
-        Folder migrations = new Folder("migrations");
-        Folder models = new Folder("models");
-        Folder views = new Folder("views");
-        Folder cache = new Folder("cache");
-        Folder publicf = new Folder("public");
-        File htaccess = new File(".htaccess");
-        File htrouter = new File(".htrouter.php");
-        File index = new File("index.html");
-        Folder includePath = new Folder("Include Path");
-        Folder remoteFiles = new Folder("Remote Files");
+        Folder root = new Folder();
+        root.setFolderName("php_demo1");
+        Folder sourceFiles = new Folder();
+        sourceFiles.setFolderName("Source Files");
+        Folder phalcon = new Folder();
+        phalcon.setFolderName(".phalcon");
+        Folder app = new Folder();
+        app.setFolderName("app");
+        Folder config = new Folder();
+        config.setFolderName("config");
+        Folder controllers = new Folder();
+        controllers.setFolderName("controllers");
+        Folder library = new Folder();
+        library.setFolderName("library");
+        Folder migrations = new Folder();
+        migrations.setFolderName("migrations");
+        Folder models = new Folder();
+        models.setFolderName("models");
+        Folder views = new Folder();
+        views.setFolderName("views");
+        Folder cache = new Folder();
+        cache.setFolderName("cache");
+        Folder publicf = new Folder();
+        publicf.setFolderName("public");
+        File htaccess = new File();
+        htaccess.setFileName(".htaccess");
+        File htrouter = new File();
+        htrouter.setFileName(".htrouter.php");
+        File index = new File();
+        index.setFileName("index.html");
+        Folder includePath = new Folder();
+        includePath.setFolderName("Include Path");
+        Folder remoteFiles = new Folder();
+        remoteFiles.setFolderName("Remote Files");
         
         root.addSubFolder(sourceFiles);
         sourceFiles.addSubFolder(phalcon);

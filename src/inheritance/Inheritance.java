@@ -40,7 +40,7 @@ class SalariedEmployee extends Employee {
 
 class HourlyEmployee extends Employee {
     private double wage;
-    private double hoursWorked;
+    private double numOfHoursWorked;
 
     public double getWage() {
         return wage;
@@ -48,11 +48,11 @@ class HourlyEmployee extends Employee {
     public void setWage(double wage) {
         this.wage = wage;
     }
-    public double getHoursWorked() {
-        return hoursWorked;
+    public double getNumOfHoursWorked() {
+        return numOfHoursWorked;
     }
-    public void setHoursWorked(double hoursWorked) {
-        this.hoursWorked = hoursWorked;
+    public void setNumOfHoursWorked (double numOfHoursWorked) {
+        this.numOfHoursWorked = numOfHoursWorked;
     }
 }
 
@@ -101,14 +101,14 @@ public class Inheritance {
         stephanie.setLastName("Smith");
         stephanie.setSSN("222-22-2222");
         stephanie.setWage(25);
-        stephanie.setHoursWorked(32);
+        stephanie.setNumOfHoursWorked(32);
 
         HourlyEmployee mary = new HourlyEmployee();
         mary.setFirstName("Mary");
         mary.setLastName("Quinn");
         mary.setSSN("333-33-3333");
         mary.setWage(19);
-        mary.setHoursWorked(47);
+        mary.setNumOfHoursWorked(47);
 
         CommissionEmployee nicole = new CommissionEmployee();
         nicole.setFirstName("Nicole");
@@ -138,8 +138,8 @@ public class Inheritance {
         
         System.out.println("First name\tLast Name\tSocial Sec #\tWeekly Salary\tWage\tHours worked\tCom rate\tGross salary\tBase salary"); 
         System.out.println(joe.getFirstName() + "\t\t" + joe.getLastName() + "\t\t" + joe.getSSN() + "\t" + "$" + decimalFormat.format(joe.getWeeklySalary()));
-        System.out.println(stephanie.getFirstName() + "\t" + stephanie.getLastName() + "\t\t" + stephanie.getSSN() + "\t\t\t" + "$" + decimalFormat.format(stephanie.getWage()) + "\t" + decimalFormat.format(stephanie.getHoursWorked()));
-        System.out.println(mary.getFirstName() + "\t\t" + mary.getLastName() + "\t\t" + mary.getSSN() + "\t\t\t" + "$" + decimalFormat.format(mary.getWage()) + "\t" + decimalFormat.format(mary.getHoursWorked()));
+        System.out.println(stephanie.getFirstName() + "\t" + stephanie.getLastName() + "\t\t" + stephanie.getSSN() + "\t\t\t" + "$" + decimalFormat.format(stephanie.getWage()) + "\t" + decimalFormat.format(stephanie.getNumOfHoursWorked()));
+        System.out.println(mary.getFirstName() + "\t\t" + mary.getLastName() + "\t\t" + mary.getSSN() + "\t\t\t" + "$" + decimalFormat.format(mary.getWage()) + "\t" + decimalFormat.format(mary.getNumOfHoursWorked()));
         System.out.println(nicole.getFirstName() + "\t\t" + nicole.getLastName() + "\t\t" + nicole.getSSN() + "\t\t\t\t\t\t" + decimalFormat.format(nicole.getCommissionRate()) + "%\t\t" +  "$" + decimalFormat.format(nicole.getGrossSales()));
         System.out.println(renwa.getFirstName() + "\t\t" + renwa.getLastName() + "\t\t" + renwa.getSSN() + "\t" + "$" + decimalFormat.format(renwa.getWeeklySalary()));
         System.out.println(mike.getFirstName() + "\t\t" + mike.getLastName() + "\t" + mike.getSSN() + "\t\t\t\t\t\t\t\t\t\t" + "$" + decimalFormat.format(mike.getBaseSalary()));
